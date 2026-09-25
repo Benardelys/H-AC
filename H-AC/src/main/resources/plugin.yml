@@ -1,0 +1,46 @@
+name: H-AC
+version: '${project.version}'
+main: me.ardelys.hac.HAC
+api-version: '1.21'
+author: Ardelys
+description: This protection was created by Ardelys for HükümCraft.
+website: https://hukumcraft.com
+
+commands:
+  hac:
+    description: Main command for H-AC Anti-Cheat
+    permission: hac.admin
+    usage: /<command> [help|reload|alerts|debug|info|violations|status|webhook]
+    aliases: [hukumac, anticheat]
+
+permissions:
+  hac.admin:
+    description: Full administration permissions for H-AC
+    default: op
+  hac.alerts:
+    description: Receive in-game anti-cheat violation alerts
+    default: op
+  hac.debug:
+    description: View detailed check debug messages
+    default: op
+  hac.webhook:
+    description: Access to H-AC Discord webhook management and testing
+    default: op
+  hac.bypass:
+    description: Bypass all anti-cheat checks
+    default: false
+  hukumac.admin:
+    description: Legacy compatibility for H-AC administration
+    default: op
+  hukumac.alerts:
+    description: Legacy compatibility for H-AC alerts
+    default: op
+  hukumac.debug:
+    description: Legacy compatibility for H-AC debug
+    default: op
+  hukumac.webhook:
+    description: Legacy compatibility for H-AC webhook
+    default: op
+  hukumac.bypass:
+    description: Legacy compatibility for H-AC bypass
+    default: false

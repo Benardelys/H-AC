@@ -1,0 +1,119 @@
+prefix: "&8[&c&lH-AC&8]&r "
+
+commands:
+  help:
+    header: "&8&m----------------------------------------"
+    title: "&c&lH-AC &7- &fv%version%"
+    author: "&7Geliştirici: &eArdelys &7| Sunucu: &cHükümCraft"
+    empty: ""
+    reload: "&e/hac reload &7- Yapılandırmayı ve dilleri yeniden yükler"
+    alerts: "&e/hac alerts &7- Yetkili bildirimlerini açar/kapatır"
+    debug: "&e/hac debug <oyuncu> &7- Oyuncu için hata ayıklama akışını başlatır"
+    info: "&e/hac info <oyuncu> &7- Ağ ve fizik durumunu görüntüler"
+    violations: "&e/hac violations <oyuncu> &7- Aktif ihlalleri listeler"
+    status: "&e/hac status &7- Sistem, TPS ve kontrol durumunu görüntüler"
+    webhook: "&e/hac webhook <status|test|reload> &7- Discord webhook ayarlarını yönetir"
+    footer: "&8&m----------------------------------------"
+  reload:
+    success: "&aH-AC yapılandırması, tespit kontrolleri ve dil dosyaları başarıyla yenilendi."
+  alerts:
+    enabled: "&aHile tespit bildirimleri açıldı."
+    disabled: "&cHile tespit bildirimleri kapatıldı."
+  debug:
+    usage: "&cKullanım: /hac debug <oyuncu>"
+    started: "&aHata ayıklama başlatıldı: &e%player%"
+    stopped: "&cHata ayıklama durduruldu: &e%player%"
+  info:
+    usage: "&cKullanım: /hac info <oyuncu>"
+    header: "&8&m----------------------------------------"
+    player-info: "&eOyuncu Bilgisi: &f%player% &7(&f%uuid%&7)"
+    metrics: "&7Gecikme: &a%ping%ms &7| İstemci Zemini: &f%ground% &7| Matematiksel Zemin: &f%math_ground%"
+    vl: "&7Toplam İhlal Puanı: &c%vl%"
+    active-checks: "&7Aktif Kontrol Sayısı: &f%checks_count%"
+    client-brand: "&7İstemci Kimliği (Brand): &b%brand% &c%suspicious%"
+    footer: "&8&m----------------------------------------"
+  violations:
+    usage: "&cKullanım: /hac violations <oyuncu>"
+    header: "&8&m----------------------------------------"
+    title: "&e%player% &eadlı oyuncunun aktif ihlalleri:"
+    none: "&aHerhangi bir aktif ihlal kaydı bulunamadı."
+    entry: " &7- &e%check%&7: &c%vl% VL"
+    recent-header: "&eSon Tespitler:"
+    recent-entry: " &8[&f%check% %check_type%&8] &7+%vl% VL &8(&7%reason%&8)"
+    footer: "&8&m----------------------------------------"
+  status:
+    header: "&8&m----------------------------------------"
+    title: "&c&lH-AC &7- &fSistem Durumu"
+    version: "&7Sürüm: &e%version% &7| Hedef: &aPaper 26.3 (1.21.11)"
+    uptime: "&7Çalışma Süresi: &f%uptime%"
+    tps: "&7Sunucu TPS: &a%tps%"
+    checks: "&7Yüklü Kontroller: &a%checks_count% &7aktif"
+    players: "&7İzlenen Oyuncular: &f%tracked_players% &7(&b%debug_players% &7hata ayıklamada)"
+    webhook: "&7Discord Webhook: %webhook_status%"
+    footer: "&8&m----------------------------------------"
+  webhook:
+    usage: "&cKullanım: /hac webhook <status|test|reload>"
+    status-header: "&8&m----------------------------------------"
+    status-title: "&c&lH-AC &7- &fDiscord Webhook Durumu"
+    status-enabled: "&7Durum: %status%"
+    status-configured: "&7Yapılandırma: %configured%"
+    status-url: "&7URL: &f%url%"
+    status-footer: "&8&m----------------------------------------"
+    status-on: "&aAktif"
+    status-off: "&cDevre Dışı"
+    status-valid: "&aYapılandırıldı"
+    status-invalid: "&cGeçersiz veya Boş"
+    test-sending: "&eDiscord test bildirimi gönderiliyor..."
+    test-success: "&aDiscord test bildirimi başarıyla kuyruğa eklendi ve iletildi."
+    test-failed: "&cDiscord test bildirimi gönderilemedi: Webhook devre dışı veya URL geçersiz."
+    reloaded: "&aDiscord webhook yapılandırması başarıyla yenilendi."
+    disabled: "&cDiscord webhook özelliği yapılandırmada devre dışı bırakılmış."
+
+alerts:
+  staff-format: "&8[&c&lH-AC&8] &c%player% &7şüpheli hareket yaptı: &e%check% &8(&7%check_type%&8) &7| &fVL: &c%vl% &8[&b%confidence%&8] &7| &fGecikme: &a%ping%ms &7| &fTPS: &a%tps%"
+  hover-text: "&7Oyuncuya ışınlanmak için tıklayın: &c%player%\n&7Neden: &f%reason%"
+  debug-format: "&8[&bH-AC-HataAyıklama&8] &7[%player%] &f%details%"
+
+punishments:
+  kick-reason: "[H-AC] Haksız Avantaj / Hile Tespit Edildi (%check% %check_type%)"
+  ban-reason: "[H-AC] Otomatik Koruma: Yasaklandınız (%check%)"
+
+discord:
+  embed:
+    footer: "H-AC • HükümCraft Koruma Sistemi"
+  detection:
+    title: "🛡️ Hile Tespiti: %check%"
+    description: "**%player%** şüpheli hareket nedeniyle tespit edildi."
+    player-field: "Oyuncu"
+    check-field: "Kontrol"
+    vl-field: "İhlal (VL)"
+    confidence-field: "Güven Düzeyi"
+    ping-field: "Gecikme (Ping)"
+    tps-field: "Sunucu TPS"
+    reason-field: "Tespit Nedeni"
+    aggregated: "Son %duration% saniyede %count% kez ihlal yaptı."
+  punishment:
+    title: "⚖️ Otomatik Cezalandırma: %action%"
+    description: "**%player%** hile kullanımı nedeniyle cezalandırıldı."
+    player-field: "Oyuncu"
+    action-field: "İşlem"
+    check-field: "Kontrol"
+    vl-field: "Son VL"
+    reason-field: "Gerekçe"
+  startup:
+    title: "🟢 H-AC Başlatıldı"
+    description: "HükümCraft H-AC anti-cheat koruması başarıyla devreye girdi (Sürüm: %version%)."
+  shutdown:
+    title: "🔴 H-AC Durduruldu"
+    description: "H-AC koruma sistemi güvenli bir şekilde kapatıldı."
+  test:
+    title: "🔔 H-AC Discord Webhook Testi"
+    description: "Bu bildirim, Discord Webhook entegrasyonunun çalıştığını doğrulamak amacıyla gönderilmiştir."
+    server-field: "Sunucu"
+    status-field: "Durum"
+    status-value: "Bağlantı Başarılı"
+
+errors:
+  no-permission: "&cBu komutu kullanmak için yetkiniz bulunmuyor."
+  player-only: "&cBu komut yalnızca oyun içerisindeki yetkililer tarafından kullanılabilir."
+  player-not-found: "&cOyuncu bulunamadı veya şu anda çevrimdışı: &e%player%"

@@ -1,0 +1,119 @@
+prefix: "&8[&c&lH-AC&8]&r "
+
+commands:
+  help:
+    header: "&8&m----------------------------------------"
+    title: "&c&lH-AC &7- &fv%version%"
+    author: "&7Created by &eArdelys &7for &cHükümCraft"
+    empty: ""
+    reload: "&e/hac reload &7- Reload configuration, checks, and languages"
+    alerts: "&e/hac alerts &7- Toggle anti-cheat staff alerts"
+    debug: "&e/hac debug <player> &7- Toggle debug stream for a player"
+    info: "&e/hac info <player> &7- View network and physics status"
+    violations: "&e/hac violations <player> &7- View active violations"
+    status: "&e/hac status &7- View system, TPS, and checks status"
+    webhook: "&e/hac webhook <status|test|reload> &7- Manage Discord webhook integration"
+    footer: "&8&m----------------------------------------"
+  reload:
+    success: "&aH-AC configuration, detection checks, and language bundles successfully reloaded."
+  alerts:
+    enabled: "&aIn-game cheat alerts have been enabled."
+    disabled: "&cIn-game cheat alerts have been disabled."
+  debug:
+    usage: "&cUsage: /hac debug <player>"
+    started: "&aNow debugging player: &e%player%"
+    stopped: "&cStopped debugging player: &e%player%"
+  info:
+    usage: "&cUsage: /hac info <player>"
+    header: "&8&m----------------------------------------"
+    player-info: "&ePlayer Info: &f%player% &7(&f%uuid%&7)"
+    metrics: "&7Ping: &a%ping%ms &7| Client Ground: &f%ground% &7| Math Ground: &f%math_ground%"
+    vl: "&7Total VL: &c%vl%"
+    active-checks: "&7Active Checks Count: &f%checks_count%"
+    client-brand: "&7Client Brand: &b%brand% &c%suspicious%"
+    footer: "&8&m----------------------------------------"
+  violations:
+    usage: "&cUsage: /hac violations <player>"
+    header: "&8&m----------------------------------------"
+    title: "&eActive Violations for &f%player%&e:"
+    none: "&aNo active violations recorded."
+    entry: " &7- &e%check%&7: &c%vl% VL"
+    recent-header: "&eRecent Flags:"
+    recent-entry: " &8[&f%check% %check_type%&8] &7+%vl% VL &8(&7%reason%&8)"
+    footer: "&8&m----------------------------------------"
+  status:
+    header: "&8&m----------------------------------------"
+    title: "&c&lH-AC &7- &fSystem Status"
+    version: "&7Version: &e%version% &7| Target: &aPaper 26.3 (1.21.11)"
+    uptime: "&7Uptime: &f%uptime%"
+    tps: "&7Server TPS: &a%tps%"
+    checks: "&7Loaded Checks: &a%checks_count% &7active"
+    players: "&7Tracked Players: &f%tracked_players% &7(&b%debug_players% &7debugging)"
+    webhook: "&7Discord Webhook: %webhook_status%"
+    footer: "&8&m----------------------------------------"
+  webhook:
+    usage: "&cUsage: /hac webhook <status|test|reload>"
+    status-header: "&8&m----------------------------------------"
+    status-title: "&c&lH-AC &7- &fDiscord Webhook Status"
+    status-enabled: "&7Status: %status%"
+    status-configured: "&7Configuration: %configured%"
+    status-url: "&7URL: &f%url%"
+    status-footer: "&8&m----------------------------------------"
+    status-on: "&aEnabled"
+    status-off: "&cDisabled"
+    status-valid: "&aConfigured"
+    status-invalid: "&cInvalid or Empty"
+    test-sending: "&eSending Discord test notification..."
+    test-success: "&aDiscord test notification successfully queued and dispatched."
+    test-failed: "&cCould not send Discord test notification: Webhook disabled or invalid URL."
+    reloaded: "&aDiscord webhook configuration successfully reloaded."
+    disabled: "&cDiscord webhook feature is disabled in config.yml."
+
+alerts:
+  staff-format: "&8[&c&lH-AC&8] &c%player% &7failed &e%check% &8(&7%check_type%&8) &7| &fVL: &c%vl% &8[&b%confidence%&8] &7| &fPing: &a%ping%ms &7| &fTPS: &a%tps%"
+  hover-text: "&7Click to teleport to &c%player%\n&7Reason: &f%reason%"
+  debug-format: "&8[&bH-AC-Debug&8] &7[%player%] &f%details%"
+
+punishments:
+  kick-reason: "[H-AC] Unfair Advantage Detected (%check% %check_type%)"
+  ban-reason: "[H-AC] Automatic Protection: You have been banned (%check%)"
+
+discord:
+  embed:
+    footer: "H-AC • HükümCraft Protection System"
+  detection:
+    title: "🛡️ Cheat Detected: %check%"
+    description: "**%player%** was flagged for anomalous behavior."
+    player-field: "Player"
+    check-field: "Check"
+    vl-field: "Violation (VL)"
+    confidence-field: "Confidence"
+    ping-field: "Latency (Ping)"
+    tps-field: "Server TPS"
+    reason-field: "Reason"
+    aggregated: "Violated %count% times in the last %duration% seconds."
+  punishment:
+    title: "⚖️ Automatic Punishment: %action%"
+    description: "**%player%** was punished for unfair advantage."
+    player-field: "Player"
+    action-field: "Action"
+    check-field: "Check"
+    vl-field: "Final VL"
+    reason-field: "Reason"
+  startup:
+    title: "🟢 H-AC Enabled"
+    description: "HükümCraft H-AC anti-cheat system initialized successfully (Version: %version%)."
+  shutdown:
+    title: "🔴 H-AC Disabled"
+    description: "H-AC protection system safely disabled."
+  test:
+    title: "🔔 H-AC Discord Webhook Test"
+    description: "This notification verifies that the Discord Webhook integration is working properly."
+    server-field: "Server"
+    status-field: "Status"
+    status-value: "Connection Successful"
+
+errors:
+  no-permission: "&cYou do not have permission to execute this command."
+  player-only: "&cThis command can only be executed by in-game staff."
+  player-not-found: "&cPlayer not found or currently offline: &e%player%"

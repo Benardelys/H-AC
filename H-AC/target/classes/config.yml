@@ -1,0 +1,247 @@
+settings:
+  prefix: "&8[&c&lH-AC&8]&r "
+  debug: false
+
+language:
+  default: "tr_TR"
+  fallback: "en_US"
+
+alerts:
+  enabled: true
+  format: "&8[&c&lH-AC&8] &c%player% &7failed &e%check% &8(&7%type%&8) &7| &fVL: &c%vl% &8[&b%confidence%&8] &7| &fPing: &a%ping%ms &7| &fTPS: &a%tps%"
+  permission: "hac.alerts"
+  min-vl-to-alert: 3.0
+
+brand-analysis:
+  enabled: true
+  confidence-boost: 1.25
+
+client-detection:
+  enabled: true
+  auto-kick: true
+  auto-kick-confidence: "HIGH"
+  kick-message: "H-AC has detected an unauthorized modified client."
+  custom-profiles: {}
+
+injector-detection:
+  enabled: true
+  auto-kick: true
+  auto-kick-confidence: "CRITICAL"
+  kick-message: "H-AC has detected an unauthorized modified client."
+  base-threshold: 85.0
+  decay-amount: 1.0
+
+behavioral:
+  multi-signal-correlation: true
+  correlation-window-seconds: 6
+
+exemptions:
+  max-ping: 350
+  min-tps: 18.0
+  teleport-grace-ticks: 20
+  respawn-grace-ticks: 35
+  velocity-grace-ticks: 20
+
+violations:
+  decay-interval-seconds: 10
+  decay-amount: 0.5
+  default-punishment-threshold: 20.0
+  default-punishment-command: "kick %player% [H-AC] Unfair Advantage Detected (%check% %type%)"
+
+logging:
+  file-logging: true
+  console-logging: false
+  file-name: "logs/h-ac.log"
+
+discord-webhook:
+  enabled: false
+  url: ""
+  username: "H-AC"
+  avatar-url: ""
+  events:
+    detections: true
+    punishments: true
+    kicks: true
+    bans: true
+    staff-actions: false
+    plugin-errors: true
+    startup: false
+    shutdown: false
+  settings:
+    async: true
+    cooldown: 3
+    max-queue-size: 100
+    min-vl-to-send: 5.0
+  colors:
+    detection: 16776960
+    punishment: 15158332
+    error: 10038562
+    startup: 5763719
+    shutdown: 9807270
+    test: 3447003
+
+checks:
+  killaura:
+    enabled: true
+    threshold: 15.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (KillAura)"
+    max-angle-change: 45.0
+    strict-gcd: true
+    min-switch-delay-ms: 45
+
+  aimassist:
+    enabled: true
+    threshold: 18.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (AimAssist)"
+    sample-size: 40
+
+  reach:
+    enabled: true
+    threshold: 12.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Reach)"
+    max-reach: 3.05
+
+  autoclicker:
+    enabled: true
+    threshold: 16.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (AutoClicker)"
+    max-cps: 20
+    min-std-dev: 4.5
+
+  criticals:
+    enabled: true
+    threshold: 10.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Criticals)"
+
+  velocity:
+    enabled: true
+    threshold: 14.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (AntiKnockback)"
+    min-horizontal-factor: 0.40
+    min-vertical-factor: 0.40
+
+  fastbow:
+    enabled: true
+    threshold: 8.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (FastBow)"
+    min-draw-ticks: 3
+
+  triggerbot:
+    enabled: true
+    threshold: 12.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (TriggerBot)"
+    min-reaction-ms: 40
+
+  speed:
+    enabled: true
+    threshold: 20.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Speed)"
+    buffer-decay: 0.05
+
+  fly:
+    enabled: true
+    threshold: 15.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Fly)"
+    max-hover-ticks: 5
+
+  glide:
+    enabled: true
+    threshold: 12.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Glide)"
+
+  jesus:
+    enabled: true
+    threshold: 12.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Jesus)"
+
+  step:
+    enabled: true
+    threshold: 12.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Step)"
+    max-step-height: 0.62
+
+  highjump:
+    enabled: true
+    threshold: 14.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (HighJump)"
+
+  longjump:
+    enabled: true
+    threshold: 14.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (LongJump)"
+
+  nofall:
+    enabled: true
+    threshold: 10.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (NoFall)"
+
+  noslow:
+    enabled: true
+    threshold: 15.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (NoSlow)"
+
+  inventorymove:
+    enabled: true
+    threshold: 12.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (InventoryMove)"
+
+  phase:
+    enabled: true
+    threshold: 10.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Phase)"
+
+  blink:
+    enabled: true
+    threshold: 15.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Blink)"
+    max-pulse-delay-ms: 1200
+
+  timer:
+    enabled: true
+    threshold: 15.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Timer)"
+    max-clock-drift: 0.08
+
+  badpackets:
+    enabled: true
+    threshold: 8.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (BadPackets)"
+
+  fasteat:
+    enabled: true
+    threshold: 10.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (FastEat)"
+    min-eat-ticks: 24
+
+  fastprojectile:
+    enabled: true
+    threshold: 10.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (FastProjectile)"
+    min-throw-delay-ms: 75
+
+  impossibleactions:
+    enabled: true
+    threshold: 8.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (ImpossibleActions)"
+
+  fastplace:
+    enabled: true
+    threshold: 12.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (FastPlace)"
+    min-place-delay-ms: 45
+
+  fastbreak:
+    enabled: true
+    threshold: 12.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (FastBreak)"
+
+  scaffold:
+    enabled: true
+    threshold: 14.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (Scaffold)"
+
+  invalidblockinteraction:
+    enabled: true
+    threshold: 10.0
+    command: "kick %player% [H-AC] Unfair Advantage Detected (InvalidBlockInteraction)"
+    max-interaction-reach: 5.5
